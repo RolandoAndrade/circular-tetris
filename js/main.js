@@ -1,4 +1,9 @@
+new Board().draw();
 
+
+
+
+/*
 var opciones=[15,20,30,40,60,80];
 var colores=["rgba(230,90,60,0.8)","rgba(230,220,60,0.8)","rgba(70,230,60,0.8)","rgba(60,230,190,0.8)","rgba(60,90,230,0.8)","rgba(190,60,230,0.8)"];
 var seccol=["#343434","#4C4C4C","#575757","#6C6C6C","#7A7A7A","#878585","#9D9C9C"];
@@ -93,7 +98,7 @@ function colision()
 	}
 	/*console.log(sec);
 	console.log(col);
-	console.log(t['y']);*/
+	console.log(t['y']);
 }
 function puntaje()
 { 	
@@ -219,4 +224,4 @@ function loop ()
 	circulo(p);
 	guia();
 }
-window.setInterval(loop, 30)
+window.setInterval(loop, 30)*/
