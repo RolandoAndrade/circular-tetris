@@ -46,6 +46,10 @@ class Circle
             ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI, false);
             ctx.fillStyle = this.color;
         ctx.fill();
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, 2, 0, 2 * Math.PI, false);
+        ctx.fillStyle = "#000";
+        ctx.fill();
         ctx.lineWidth = this.lineWidth;
         ctx.strokeStyle = this.borderColor;
         ctx.stroke();

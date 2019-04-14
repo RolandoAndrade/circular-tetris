@@ -1,6 +1,17 @@
-new Board().draw();
+let board=new Board();
+board.draw();
 
-
+document.onkeydown = function (e)
+{
+	if ((e.keyCode==40))
+	{
+		console.log("ahdj");
+	}
+	else if ((e.keyCode==37||e.keyCode==65))
+		board.move(-1);
+	else if ((e.keyCode==39||e.keyCode==68))
+		board.move(1);
+}
 
 
 /*
@@ -17,20 +28,7 @@ function tabla(sec)
 	for(var i=0;i<7;i++)
 		sec[i]=new Array();
 }
-document.onkeydown = function (e)
-{//detecta si una tecla fue presionada
-	//console.log(e.keyCode);//detecta el codigo de la tecla y lo muestra en consola
-	if ((e.keyCode==40)) 
-	{
-		soltar();
-	};
-	if ((e.keyCode==37||e.keyCode==65)) 
-		if(p['x']-p['r']>0)
-			p['x']--;
-	if ((e.keyCode==39||e.keyCode==68)) 
-		if(p['x']+p['r']<400)
-			p['x']++;
-}
+
 function ordenar(t)
 {
 	for(var i=0;i<t.length-1;i++)

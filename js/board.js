@@ -10,7 +10,26 @@ class Section
         this.y=y-height;
         this.rectangle=new Rectangle(0,this.y,WIDTH,this.height,this.color);
         this.text="+"+this.number*100;
+        this.balls=[];
     }
+
+    collide()
+    {
+
+    }
+
+    add(ball)
+    {
+        if(ball.y>this.y&&this.y+this.height>ball.y)
+        {
+            this.balls.push(ball);
+            return true;
+        }
+        return false;
+    }
+
+
+
     draw()
     {
         this.rectangle.draw();
@@ -26,15 +45,27 @@ class Board
 {
     constructor()
     {
+        this.createBoard();
+        this.createBall();
+    }
+
+    createBoard()
+    {
         this.sections=[];
-        let y=HEIGHT;
+        this.y=HEIGHT;
         let height=SECTION_HEIGHT;
         for(let i=0;i<NUMBER_OF_SECTIONS;i++)
         {
-            this.sections.push(new Section(i,y,height));
-            y=this.sections[i].y;
+            this.sections.push(new Section(i,this.y,height));
+            this.y=this.sections[i].y;
             height*=0.92;
         }
+    }
+
+    createBall()
+    {
+        this.ball=new Ball(WIDTH/2,this.y/2,this.y);
+        this.guide=new Guide(this.ball.x,this.ball.radius,this.ball.color);
     }
 
     draw()
@@ -43,5 +74,19 @@ class Board
         {
             this.sections[i].draw();
         }
+        this.ball.draw();
+        this.guide.draw();
+    }
+
+    move(x,y)
+    {
+        this.ball.move(x,y);
+        this.guide.setPosition(this.ball.x);
+        this.draw();
+    }
+
+    drop()
+    {
+
     }
 }

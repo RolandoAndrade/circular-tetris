@@ -1,7 +1,7 @@
 let canvas=document.getElementById('canvas');
 let ctx=canvas.getContext('2d');
 
-const CIRCLE_RADIUS=[15,20,30,40,60,80];
+const CIRCLE_RADIUS=[9,12,18,24,36,48];
 
 const ORANGE_COLOR="rgba(230,90,60,0.8)";
 const YELLOW_COLOR="rgba(230,220,60,0.8)";
