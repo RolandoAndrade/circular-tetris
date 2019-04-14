@@ -1,16 +1,14 @@
 class Ball extends Circle
 {
-    constructor(x,y,areaHeight)
+    constructor(x,y)
     {
         super(x,y,
             CIRCLE_RADIUS[Math.floor(Math.random() * (CIRCLE_RADIUS.length))],
             COLORS[Math.floor(Math.random() * (COLORS.length))]);
-        this.area=new Rectangle(0,0,WIDTH,areaHeight,"#525252");
     }
 
     draw()
     {
-        this.area.draw();
         super.draw();
     }
 

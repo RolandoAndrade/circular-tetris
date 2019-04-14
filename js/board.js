@@ -67,7 +67,7 @@ class Section
         this.drawText();
     }
 
-    isPointed()
+    getPoints()
     {
         if(this.balls.length===BALLS_TO_WIN)
         {
@@ -83,6 +83,31 @@ class Section
     }
 }
 
+class Score
+{
+    constructor(height)
+    {
+
+        this.area=new Rectangle(0,0,WIDTH,height,"#5B5B5B");
+        this.points=0;
+    }
+
+    draw()
+    {
+        this.area.draw();
+        ctx.font ='70px Arial, sans-serif';
+        ctx.fillStyle="#7E7E7E";
+        ctx.textAlign="center";
+        ctx.fillText(this.points,WIDTH/2,this.area.h-25);
+        ctx.font ='10px Arial, sans-serif';
+        ctx.fillText("Rolando Andrade",WIDTH/2,this.area.h-5);
+    }
+
+    point(points)
+    {
+        this.points+=points;
+    }
+}
 
 class Board
 {
@@ -90,6 +115,7 @@ class Board
     {
         this.createBoard();
         this.createBall();
+        this.score=new Score(this.y);
     }
 
     createBoard()
@@ -107,7 +133,7 @@ class Board
 
     createBall()
     {
-        this.ball=new Ball(WIDTH/2,this.y/2,this.y);
+        this.ball=new Ball(WIDTH/2,this.y/2);
         this.guide=new Guide(this.ball.x,this.ball.radius,this.ball.color);
         this.guide.calcY(this.sections);
     }
@@ -122,6 +148,7 @@ class Board
         {
             this.sections[i].drawBalls();
         }
+        this.score.draw();
         this.ball.draw();
         this.guide.draw();
     }
@@ -138,7 +165,7 @@ class Board
     {
         let i=0;
         while(i<NUMBER_OF_SECTIONS&&!this.sections[i++].add(this.guide));
-        this.sections[i-1].isPointed();
+        this.score.point(this.sections[i-1].getPoints());
         this.createBall();
         this.draw();
     }
