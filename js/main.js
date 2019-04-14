@@ -5,7 +5,7 @@ document.onkeydown = function (e)
 {
 	if ((e.keyCode==40))
 	{
-		console.log("ahdj");
+		board.drop();
 	}
 	else if ((e.keyCode==37||e.keyCode==65))
 		board.move(-1);

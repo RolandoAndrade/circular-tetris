@@ -19,3 +19,5 @@ const WIDTH=canvas.width;
 const HEIGHT=canvas.height;
 
 const GRAY_SCALE_COLORS=["#343434","#4C4C4C","#575757","#6C6C6C","#7A7A7A","#878585","#9D9C9C"];
+
+const BALLS_TO_WIN=4;
